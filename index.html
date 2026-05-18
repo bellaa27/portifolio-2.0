@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isabella Cardoso | Portfólio Profissional</title>
+  <!-- Fontes modernas -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0A0A0A;
+      color: #E0E0E0;
+      line-height: 1.6;
+    }
+
+    /* Loading/Splash Screen Profissional */
+    .splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0A0A0A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .splash.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .splash-content {
+      text-align: center;
+    }
+
+    .splash-logo {
+      font-size: 4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .splash-text {
+      font-size: 0.875rem;
+      color: #6B7280;
+      letter-spacing: 2px;
+    }
+
+    .loader {
+      width: 40px;
+      height: 40px;
+      margin: 20px auto 0;
+      border: 3px solid #1F2937;
+      border-top-color: #6366f1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Conteúdo principal */
+    .main-content {
+      display: none;
+    }
+
+    .main-content.show {
+      display: block;
+    }
+
+    /* Header Profissional */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+      z-index: 100;
+      padding: 1rem 0;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo p {
+      font-size: 0.75rem;
+      color: #6B7280;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: 1px solid #374151;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #D1D5DB;
+    }
+
+    .nav-btn:hover {
+      border-color: #6366f1;
+      color: #6366f1;
+      transform: translateY(-2px);
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 7rem 2rem 3rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #1F2937;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-content .badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: #6366f1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      color: #9CA3AF;
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #6366f1;
+    }
+
+    .stat p {
+      font-size: 0.75rem;
+      color: #6B7280;
+    }
+
+    .hero-image {
+      background: linear-gradient(135deg, #1F2937, #111827);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid #374151;
+    }
+
+    .hero-image i {
+      font-size: 6rem;
+      color: #6366f1;
+      margin-bottom: 1rem;
+    }
+
+    /* Seção de projetos */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title i {
+      color: #6366f1;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #111827;
+      border: 1px solid #1F2937;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: #6366f1;
+      transform: translateY(-4px);
+    }
+
+    .project-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      font-size: 0.875rem;
+      color: #9CA3AF;
+      margin-bottom: 1rem;
+    }
+
+    .project-card a {
+      color: #6366f1;
+      text-decoration: none;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-card a:hover {
+      gap: 0.75rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid #1F2937;
+      margin-top: 3rem;
+      color: #6B7280;
+      font-size: 0.75rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-stats {
+        justify-content: center;
+      }
+      
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .nav-links {
+        justify-content: center;
+      }
+      
+      .container {
+        padding-top: 9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash Screen Profissional -->
+  <div class="splash" id="splash">
+    <div class="splash-content">
+      <div class="splash-logo">IC</div>
+      <div class="loader"></div>
+      <div class="splash-text">Isabella Cardoso • Portfolio</div>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="main-content" id="mainContent">
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <h1>Isabella Cardoso</h1>
+          <p>Desenvolvedora Full Stack</p>
+        </div>
+        <div class="nav-links">
+          <button class="nav-btn" onclick="showPage('html')">HTML/CSS</button>
+          <button class="nav-btn" onclick="showPage('javascript')">JavaScript</button>
+          <button class="nav-btn" onclick="showPage('gamma')">Gamma</button>
+          <button class="nav-btn" onclick="showPage('mobile')">Mobile</button>
+          <button class="nav-btn" onclick="showPage('python')">Python</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="hero">
+        <div class="hero-content">
+          <span class="badge">🎯 Portfólio Profissional</span>
+          <h1>Desenvolvedora<br>Full Stack</h1>
+          <p>Especialista em criação de soluções web, aplicações mobile e integrações. Transformo ideias em código de alta performance.</p>
+          <div class="hero-stats">
+            <div class="stat">
+              <h3>20+</h3>
+              <p>Projetos</p>
+            </div>
+            <div class="stat">
+              <h3>5+</h3>
+              <p>Tecnologias</p>
+            </div>
+            <div class="stat">
+              <h3>100%</h3>
+              <p>Dedicada</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <i class="fas fa-code"></i>
+          <p style="margin-top: 1rem;">Full Stack Developer</p>
+          <small style="color: #6B7280;">React • Node • Python • React Native</small>
+        </div>
+      </div>
+
+      <!-- Seção HTML -->
+      <div id="html" class="section active-section">
+        <div class="section-title">
+          <i class="fab fa-html5"></i>
+          <span>HTML / CSS</span>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-icon">🌐</div>
+            <h3>Projeto Copa</h3>
+            <p>Aplicação web sobre a Copa do Mundo com design responsivo.</p>
+            <a href="https://github.com/bellaa27/copa" target="_blank">Ver Projeto →</a>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">👻</div>
+            <h3>Pacman Game</h3>
+            <p>Recriação do clássico jogo Pacman com HTML5, CSS3 e JavaScript.</p>
+            <a href="https://bellaa27.github.io/PACMAN2/pac.html" target="_blank">Ver Projeto →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção JavaScript -->
+      <div id="javascript" class="section" style="display: none;">
+        <div class="section-title">
+          <i class="fab fa-js"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card"><h3>Primeiros Códigos</h3><p>Primeiros passos com JavaScript</p><a href="https://bellaa27.github.io/primeira-aula-backend/html" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Media SE</h3><p>Sistema de média escolar</p><a href="https://github.com/bellaa27/links2" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Variáveis</h3><p>Manipulação de variáveis em JS</p><a href="https://github.com/bellaa27/-variaveis" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Usando For</h3><p>Estruturas de repetição</p><a href="https://github.com/bellaa27/for" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Brake</h3><p>Sistema de freio simulador</p><a href="https://github.com/bellaa27/brake" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Filtrar</h3><p>Sistema de filtros</p><a href="https://github.com/bellaa27/filtrar" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>4 Códigos Juntos</h3><p>Projeto integrado</p><a href="https://github.com/bellaa27/quatro-codigos-juntos-" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Leitura</h3><p>Sistema de leitura de dados</p><a href="https://github.com/bellaa27/leitura-" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Cliente</h3><p>Cadastro de clientes</p><a href="https://github.com/bellaa27/clientejs" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Selection</h3><p>Sistema de seleção</p><a href="https://github.com/bellaa27/selection" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Livros</h3><p>Catálogo de livros</p><a href="https://github.com/bellaa27/livros" target="_blank">Ver Projeto →</a></div>
+        </div>
+      </div>
+
+      <!-- Seção Gamma -->
+      <div id="gamma" class="section" style="display: none;">
+        <div class="section-title">
+          <i class="fas fa-chart-line"></i>
+          <span>Gamma • Apresentações</span>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card"><h3>App Escolar</h3><p>Apresentação de aplicativo escolar</p><a href="https://gamma.app/docs/Apresentacao-do-App-Escolar-Gestao-Completa-na-Palma-da-Mao-t82h2lwr6prdzdu?mode=doc" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Propriedade Intelectual</h3><p>Apresentação sobre propriedade intelectual</p><a href="https://gamma.app/docs/Propriedade-Intelectual-de-Criacao-Protegendo-o-Valor-da-Inovacao-lfmed5eowz15fz3" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Startups 2026</h3><p>Análise de startups em 2026</p><a href="https://gamma.app/docs/Startups-de-2026-A-Nova-Onda-de-Crescimento-Global-l4z1z9s7buwla75" target="_blank">Ver Projeto →</a></div>
+        </div>
+      </div>
+
+      <!-- Seção Mobile -->
+      <div id="mobile" class="section" style="display: none;">
+        <div class="section-title">
+          <i class="fas fa-mobile-alt"></i>
+          <span>Mobile • React Native</span>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card"><h3>Joguinho</h3><p>Jogo desenvolvido em React Native</p><a href="https://snack.expo.dev/@bellinha/joguinho" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Jogo da Cor</h3><p>Jogo interativo de cores</p><a href="https://snack.expo.dev/@bellinha/b21135" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><h3>Jogo da Imagem</h3><p>Jogo com imagens interativas</p><a href="https://snack.expo.dev/@bellinha/imagens" target="_blank">Ver Projeto →</a></div>
+        </div>
+      </div>
+
+      <!-- Seção Python -->
+      <div id="python" class="section" style="display: none;">
+        <div class="section-title">
+          <i class="fab fa-python"></i>
+          <span>Python</span>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card"><h3>Projeto Python 1</h3><p>Em desenvolvimento</p><a href="#">Em breve →</a></div>
+          <div class="project-card"><h3>Projeto Python 2</h3><p>Em desenvolvimento</p><a href="#">Em breve →</a></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2025 Isabella Cardoso • Desenvolvedora Full Stack</p>
+      <p style="margin-top: 0.5rem;">Transformando ideias em código • Tecnologia e Inovação</p>
+    </footer>
+  </div>
+
+  <script>
+    // Mostrar seções
+    function showPage(pageId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(pageId).style.display = 'block';
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    // Splash screen
+    window.onload = function() {
+      setTimeout(() => {
+        const splash = document.getElementById('splash');
+        splash.classList.add('hidden');
+        setTimeout(() => {
+          splash.style.display = 'none';
+          document.getElementById('mainContent').classList.add('show');
+        }, 800);
+      }, 2500);
+    }
+
+    // Ativar primeira seção
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.section').forEach((section, index) => {
+        if (index !== 0) section.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

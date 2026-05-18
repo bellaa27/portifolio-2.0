@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Bem-vindo | Meu Portfólio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f0f4f8;
+            overflow-x: hidden;
+        }
+
+        /* ===== ESTRUTURA PRINCIPAL ===== */
+        .page-wrapper {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #f5f7fc 0%, #eef2f8 100%);
+        }
+
+        /* ===== HEADER ===== */
+        .main-header {
+            background: #FFFFFF;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 24px;
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            background: linear-gradient(120deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            padding: 80px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-left h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FFFFFF, #94A3B8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-left p {
+            font-size: 18px;
+            color: #CBD5E1;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* ÚNICO BOTÃO */
+        .btn-acessar {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+        }
+
+        .btn-acessar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(59,130,246,0.5);
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+        }
+
+        /* CARROSSEL DE IMAGENS */
+        .hero-right {
+            background: rgba(255,255,255,0.05);
+            border-radius: 32px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .indicator.active {
+            background: #3B82F6;
+            width: 25px;
+            border-radius: 5px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .btn-prev {
+            left: 10px;
+        }
+
+        .btn-next {
+            right: 10px;
+        }
+
+        /* ===== SEÇÃO DE CURSOS ===== */
+        .cursos-section {
+            max-width: 1280px;
+            margin: 80px auto;
+            padding: 0 32px;
+        }
+
+        .cursos-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .cursos-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .cursos-subtitle {
+            text-align: center;
+            color: #64748B;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .curso-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #E2E8F0;
+        }
+
+        .curso-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-color: #3B82F6;
+        }
+
+        .curso-header {
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .curso-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .curso-header h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .curso-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .curso-content {
+            padding: 30px;
+        }
+
+        .curso-content h3 {
+            color: #1E3A8A;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .curso-content p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .curso-destaques {
+            background: #F8FAFC;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        .curso-destaques h4 {
+            color: #1E3A8A;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .curso-destaques ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .curso-destaques li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #475569;
+        }
+
+        /* ===== CARDS DE TECNOLOGIAS ===== */
+        .cards-section {
+            max-width: 1280px;
+            margin: 80px auto;
+            padding: 0 32px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 48px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .card-item {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border: 1px solid #E2E8F0;
+        }
+
+        .card-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            border-color: #3B82F6;
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .card-item h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #0F172A;
+        }
+
+        .card-item p {
+            color: #64748B;
+            line-height: 1.5;
+        }
+
+        /* ===== RODAPÉ ===== */
+        .main-footer {
+            background: #0F172A;
+            color: #CBD5E1;
+            padding: 48px 32px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-left h1 {
+                font-size: 36px;
+            }
+            .header-container {
+                padding: 0 20px;
+                height: 70px;
+            }
+            .btn-acessar {
+                padding: 14px 32px;
+                font-size: 18px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .hero-section {
+                padding: 60px 20px;
+            }
+            .carousel-slide img {
+                height: 250px;
+            }
+            .cursos-grid {
+                grid-template-columns: 1fr;
+            }
+            .cursos-title {
+                font-size: 32px;
+            }
+            .curso-header h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="header-container">
+                <div class="logo-area">
+                    <div class="logo-icon">🚀</div>
+                    <div class="logo-text">MeuPortfolio</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h1>Bem-vindo ao meu universo criativo</h1>
+                    <p>Explore meus projetos, skills e cases de sucesso. Uma experiência digital feita com código, design e inovação.</p>
+                    <button class="btn-acessar" onclick="irParaPortfolio()">
+                        🎯 Acessar Portfólio
+                        <span>→</span>
+                    </button>
+                </div>
+                
+                <!-- CARROSSEL DE IMAGENS -->
+                <div class="hero-right">
+                    <div class="carousel-container">
+                        <button class="carousel-btn btn-prev" onclick="mudarSlide(-1)">❮</button>
+                        <div class="carousel-slides" id="carouselSlides">
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=300&fit=crop" alt="Programação">
+                                <div class="carousel-caption">💻 Desenvolvimento Web</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&h=300&fit=crop" alt="Front-end">
+                                <div class="carousel-caption">🎨 Front-end & UI/UX</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop" alt="Back-end">
+                                <div class="carousel-caption">⚙️ Back-end & API</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop" alt="Design">
+                                <div class="carousel-caption">🎯 Projetos Completos</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop" alt="Mobile">
+                                <div class="carousel-caption">📱 Apps Modernos</div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn btn-next" onclick="mudarSlide(1)">❯</button>
+                    </div>
+                    <div class="carousel-indicators" id="indicators"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CURSOS -->
+        <div class="cursos-section">
+            <h2 class="cursos-title">🎓 Cursos em Destaque</h2>
+            <p class="cursos-subtitle">Conheça nossos cursos exclusivos e transforme sua carreira</p>
+            
+            <div class="cursos-grid">
+                <!-- Curso 1: Desenvolvimento de Programação -->
+                <div class="curso-card">
+                    <div class="curso-header">
+                        <div class="curso-icon">💻</div>
+                        <h2>Desenvolvimento de Programação</h2>
+                        <span class="curso-badge">🎓 100% Online • Certificado</span>
+                    </div>
+                    <div class="curso-content">
+                        <h3><span>🚀</span> Como funciona o curso?</h3>
+                        <p>O curso de <strong>Desenvolvimento de Programação</strong> é uma jornada completa do zero ao avançado, onde você aprenderá as linguagens mais requisitadas do mercado, como <strong>JavaScript, Python, Java e C#</strong>. Com aulas práticas, projetos reais e mentoria especializada, você sai preparado para atuar como desenvolvedor júnior em qualquer empresa de tecnologia.</p>
+                        
+                        <div class="curso-destaques">
+                            <h4>✨ Diferenciais do curso:</h4>
+                            <ul>
+                                <li>✅ +200 horas de conteúdo prático</li>
+                                <li>✅ 10 projetos reais para portfólio</li>
+                                <li>✅ Certificado reconhecido pelo mercado</li>
+                                <li>✅ Suporte 24/7 com professores especialistas</li>
+                                <li>✅ Networking com +500 alunos</li>
+                            </ul>
+                        </div>
+                        
+                        <p><strong>🌟 Por que é incrível?</strong> Você não só aprende a programar, mas também desenvolve raciocínio lógico, capacidade de resolver problemas complexos e entra em uma das áreas mais bem pagas do mundo.</p>
+                    </div>
+                </div>
+
+                <!-- Curso 2: Desenvolvimento de IA -->
+                <div class="curso-card">
+                    <div class="curso-header">
+                        <div class="curso-icon">🤖</div>
+                        <h2>Desenvolvimento de IA</h2>
+                        <span class="curso-badge">🎓 100% Online • Certificado</span>
+                    </div>
+                    <div class="curso-content">
+                        <h3><span>🧠</span> Como funciona o curso?</h3>
+                        <p>O curso de <strong>Desenvolvimento de Inteligência Artificial</strong> é um mergulho no futuro da tecnologia. Você aprenderá desde os fundamentos de <strong>Machine Learning, Deep Learning, Redes Neurais</strong> até a criação de chatbots, assistentes virtuais e sistemas preditivos. Com projetos práticos usando <strong>Python, TensorFlow e PyTorch</strong>.</p>
+                        
+                        <div class="curso-destaques">
+                            <h4>✨ Diferenciais do curso:</h4>
+                            <ul>
+                                <li>✅ +180 horas de conteúdo teórico-prático</li>
+                                <li>✅ Criação de 8 IAs do zero</li>
+                                <li>✅ Certificação em Machine Learning</li>
+                                <li>✅ Projetos com dados reais do mercado</li>
+                                <li>✅ Preparação para certificações internacionais</li>
+                            </ul>
+                        </div>
+                        
+                        <p><strong>🌟 Por que é incrível?</strong> A inteligência artificial está transformando todos os setores da economia. Com este curso, você se torna um profissional do futuro, capaz de criar soluções inteligentes que impactam milhões de pessoas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARDS DE TECNOLOGIAS -->
+        <div class="cards-section">
+            <h2 class="section-title">Tecnologias que você vai dominar</h2>
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div class="card-icon">💻</div>
+                    <h3>Front-end Moderno</h3>
+                    <p>React, Vue, Tailwind e animações incríveis.</p>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon">🚀</div>
+                    <h3>Back-end & API</h3>
+                    <p>Node.js, Python, bancos de dados e integrações.</p>
+                </div>
+                <div class="card-item">
+                    <div class="card-icon">🤖</div>
+                    <h3>Inteligência Artificial</h3>
+                    <p>Machine Learning, TensorFlow e chatbots inteligentes.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <p>© 2025 Meu Portfólio</p>
+            <p style="font-size: 13px; margin-top: 12px;">🚀 Transformando ideias em código e inteligência artificial</p>
+        </footer>
+    </div>
+
+    <script>
+        // Carrossel de imagens
+        let slideAtual = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const carouselSlides = document.getElementById('carouselSlides');
+
+        function criarIndicadores() {
+            const indicatorsContainer = document.getElementById('indicators');
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.onclick = () => irParaSlide(i);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        function atualizarIndicadores() {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((ind, index) => {
+                if (index === slideAtual) {
+                    ind.classList.add('active');
+                } else {
+                    ind.classList.remove('active');
+                }
+            });
+        }
+
+        function irParaSlide(index) {
+            slideAtual = index;
+            const offset = -slideAtual * 100;
+            carouselSlides.style.transform = `translateX(${offset}%)`;
+            atualizarIndicadores();
+        }
+
+        function mudarSlide(direcao) {
+            slideAtual += direcao;
+            if (slideAtual >= totalSlides) {
+                slideAtual = 0;
+            } else if (slideAtual < 0) {
+                slideAtual = totalSlides - 1;
+            }
+            irParaSlide(slideAtual);
+        }
+
+        let intervaloAuto = setInterval(() => {
+            mudarSlide(1);
+        }, 4000);
+
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(intervaloAuto);
+            });
+            carouselContainer.addEventListener('mouseleave', () => {
+                intervaloAuto = setInterval(() => {
+                    mudarSlide(1);
+                }, 4000);
+            });
+        }
+
+        criarIndicadores();
+
+        // Função para redirecionar para o portfólio (index.html)
+        function irParaPortfolio() {
+            const btn = document.querySelector('.btn-acessar');
+            if (btn) btn.style.transform = 'scale(0.95)';
+            
+            criarEfeitoParticulas();
+            
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 300);
+        }
+
+        function criarEfeitoParticulas() {
+            const icons = ['🚀', '💻', '🎯', '✨', '⭐', '💡', '🔥', '🎨', '🤖'];
+            for (let i = 0; i < 40; i++) {
+                const particula = document.createElement('div');
+                particula.textContent = icons[Math.floor(Math.random() * icons.length)];
+                particula.style.position = 'fixed';
+                particula.style.left = (Math.random() * window.innerWidth) + 'px';
+                particula.style.top = (Math.random() * window.innerHeight) + 'px';
+                particula.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                particula.style.pointerEvents = 'none';
+                particula.style.zIndex = '9999';
+                particula.style.opacity = '0.9';
+                particula.style.animation = 'explodir 0.8s ease-out forwards';
+                document.body.appendChild(particula);
+                
+                setTimeout(() => {
+                    particula.remove();
+                }, 800);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explodir {
+                0% {
+                    transform: scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1.2) rotate(180deg);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: scale(1.5) rotate(360deg) translateY(-60px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animação dos cards
+        const cards = document.querySelectorAll('.card-item, .curso-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = '0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
