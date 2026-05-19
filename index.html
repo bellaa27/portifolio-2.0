@@ -229,6 +229,11 @@
     /* Seção de projetos */
     .section {
       margin-bottom: 3rem;
+      display: none;
+    }
+
+    .section.active-section {
+      display: block;
     }
 
     .section-title {
@@ -294,6 +299,80 @@
       gap: 0.75rem;
     }
 
+    /* Estilo da seção LinkedIn */
+    .linkedin-placeholder {
+      background: linear-gradient(135deg, #111827, #0f1117);
+      border: 2px dashed #374151;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      grid-column: 1 / -1;
+    }
+
+    .linkedin-placeholder:hover {
+      border-color: #0a66c2;
+      background: rgba(10, 102, 194, 0.05);
+    }
+
+    .linkedin-placeholder i {
+      font-size: 3.5rem;
+      color: #0a66c2;
+      margin-bottom: 1rem;
+    }
+
+    .linkedin-placeholder h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #E0E0E0;
+    }
+
+    .linkedin-placeholder p {
+      color: #6B7280;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .add-project-btn {
+      background: linear-gradient(135deg, #0a66c2, #0e76a8);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .add-project-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(10, 102, 194, 0.3);
+    }
+
+    .delete-btn {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      color: #ef4444;
+      cursor: pointer;
+      font-size: 0.7rem;
+      margin-top: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.3s ease;
+    }
+
+    .delete-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: #ef4444;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -354,6 +433,7 @@
           <button class="nav-btn" onclick="showPage('gamma')">Gamma</button>
           <button class="nav-btn" onclick="showPage('mobile')">Mobile</button>
           <button class="nav-btn" onclick="showPage('python')">Python</button>
+          <button class="nav-btn" onclick="showPage('linkedin')">LinkedIn</button>
         </div>
       </div>
     </header>
@@ -388,7 +468,7 @@
       </div>
 
       <!-- Seção HTML -->
-      <div id="html" class="section active-section">
+      <div id="html" class="section">
         <div class="section-title">
           <i class="fab fa-html5"></i>
           <span>HTML / CSS</span>
@@ -410,7 +490,7 @@
       </div>
 
       <!-- Seção JavaScript -->
-      <div id="javascript" class="section" style="display: none;">
+      <div id="javascript" class="section">
         <div class="section-title">
           <i class="fab fa-js"></i>
           <span>JavaScript</span>
@@ -431,7 +511,7 @@
       </div>
 
       <!-- Seção Gamma -->
-      <div id="gamma" class="section" style="display: none;">
+      <div id="gamma" class="section">
         <div class="section-title">
           <i class="fas fa-chart-line"></i>
           <span>Gamma • Apresentações</span>
@@ -444,7 +524,7 @@
       </div>
 
       <!-- Seção Mobile -->
-      <div id="mobile" class="section" style="display: none;">
+      <div id="mobile" class="section">
         <div class="section-title">
           <i class="fas fa-mobile-alt"></i>
           <span>Mobile • React Native</span>
@@ -457,7 +537,7 @@
       </div>
 
       <!-- Seção Python -->
-      <div id="python" class="section" style="display: none;">
+      <div id="python" class="section">
         <div class="section-title">
           <i class="fab fa-python"></i>
           <span>Python</span>
@@ -467,11 +547,47 @@
           <div class="project-card"><h3>Projeto Python 2</h3><p>Em desenvolvimento</p><a href="#">Em breve →</a></div>
         </div>
       </div>
+
+      <!-- Seção LinkedIn - Espaço para adicionar projetos -->
+      <div id="linkedin" class="section">
+        <div class="section-title">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn • Meus Projetos</span>
+        </div>
+        
+        <!-- Grid onde os projetos serão exibidos -->
+        <div class="projects-grid" id="linkedinProjectsGrid">
+          <!-- Botão para adicionar novo projeto -->
+          <div class="linkedin-placeholder" id="placeholderAdd">
+            <i class="fab fa-linkedin"></i>
+            <h3>Adicione seus projetos do LinkedIn</h3>
+            <p>Clique no botão abaixo para adicionar os links dos seus projetos publicados no LinkedIn</p>
+            <button class="add-project-btn" onclick="openAddProjectModal()">
+              <i class="fas fa-plus-circle"></i> Adicionar Projeto
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal para adicionar projeto -->
+        <div id="projectModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center;">
+          <div style="background: #111827; border: 1px solid #374151; border-radius: 20px; padding: 2rem; max-width: 500px; width: 90%; margin: 20px;">
+            <h3 style="margin-bottom: 1rem; color: #E0E0E0;">Adicionar Projeto do LinkedIn</h3>
+            <input type="text" id="projectTitle" placeholder="Título do projeto" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #1F2937; border: 1px solid #374151; border-radius: 8px; color: white; font-family: 'Inter', sans-serif;">
+            <textarea id="projectDesc" placeholder="Descrição do projeto" rows="3" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #1F2937; border: 1px solid #374151; border-radius: 8px; color: white; font-family: 'Inter', sans-serif;"></textarea>
+            <input type="url" id="projectUrl" placeholder="URL do LinkedIn (ex: https://linkedin.com/posts/...)" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #1F2937; border: 1px solid #374151; border-radius: 8px; color: white; font-family: 'Inter', sans-serif;">
+            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+              <button onclick="closeModal()" style="padding: 0.6rem 1.2rem; background: #374151; border: none; border-radius: 8px; color: white; cursor: pointer;">Cancelar</button>
+              <button onclick="saveProject()" style="padding: 0.6rem 1.2rem; background: #0a66c2; border: none; border-radius: 8px; color: white; cursor: pointer;">Salvar Projeto</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer class="footer">
       <p>© 2025 Isabella Cardoso • Desenvolvedora Full Stack</p>
       <p style="margin-top: 0.5rem;">Transformando ideias em código • Tecnologia e Inovação</p>
+      <p style="margin-top: 0.5rem; font-size: 0.7rem;"><i class="fab fa-linkedin"></i> isabellacardoso | <i class="fab fa-github"></i> bellaa27</p>
     </footer>
   </div>
 
@@ -480,10 +596,182 @@
     function showPage(pageId) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => {
+        section.classList.remove('active-section');
         section.style.display = 'none';
       });
-      document.getElementById(pageId).style.display = 'block';
-      window.scrollTo({ top: 400, behavior: 'smooth' });
+      const targetSection = document.getElementById(pageId);
+      if (targetSection) {
+        targetSection.style.display = 'block';
+        targetSection.classList.add('active-section');
+        window.scrollTo({ top: 400, behavior: 'smooth' });
+      }
+    }
+
+    // Modal functions
+    function openAddProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.style.display = 'flex';
+      document.getElementById('projectTitle').value = '';
+      document.getElementById('projectDesc').value = '';
+      document.getElementById('projectUrl').value = '';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('projectModal');
+      modal.style.display = 'none';
+    }
+
+    function saveProject() {
+      const title = document.getElementById('projectTitle').value.trim();
+      const desc = document.getElementById('projectDesc').value.trim();
+      const url = document.getElementById('projectUrl').value.trim();
+
+      if (!title) {
+        alert('Por favor, digite o título do projeto');
+        return;
+      }
+      if (!desc) {
+        alert('Por favor, digite a descrição do projeto');
+        return;
+      }
+      if (!url) {
+        alert('Por favor, digite a URL do LinkedIn');
+        return;
+      }
+      if (!url.includes('linkedin.com')) {
+        if(!confirm('A URL não parece ser do LinkedIn. Deseja continuar mesmo assim?')) {
+          return;
+        }
+      }
+
+      addProjectCard(title, desc, url);
+      closeModal();
+    }
+
+    function addProjectCard(title, description, url) {
+      const grid = document.getElementById('linkedinProjectsGrid');
+      
+      // Remove o placeholder se ele existir
+      const placeholder = document.getElementById('placeholderAdd');
+      if (placeholder && grid.children.length === 1) {
+        placeholder.remove();
+      }
+      
+      // Cria um ID único para o card
+      const cardId = 'project_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+      
+      // Cria o novo card
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.id = cardId;
+      card.innerHTML = `
+        <div class="project-icon">📌</div>
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(description)}</p>
+        <a href="${escapeHtml(url)}" target="_blank">Ver no LinkedIn →</a>
+        <div>
+          <button class="delete-btn" onclick="deleteProject('${cardId}')">
+            <i class="fas fa-trash-alt"></i> Remover
+          </button>
+        </div>
+      `;
+      grid.appendChild(card);
+      
+      // Salva no localStorage
+      saveProjectsToLocalStorage();
+    }
+
+    function deleteProject(cardId) {
+      if (confirm('Tem certeza que deseja remover este projeto?')) {
+        const card = document.getElementById(cardId);
+        if (card) {
+          card.remove();
+          
+          // Se não houver mais projetos, mostra o placeholder novamente
+          const grid = document.getElementById('linkedinProjectsGrid');
+          if (grid.children.length === 0) {
+            const newPlaceholder = document.createElement('div');
+            newPlaceholder.id = 'placeholderAdd';
+            newPlaceholder.className = 'linkedin-placeholder';
+            newPlaceholder.innerHTML = `
+              <i class="fab fa-linkedin"></i>
+              <h3>Adicione seus projetos do LinkedIn</h3>
+              <p>Clique no botão abaixo para adicionar os links dos seus projetos publicados no LinkedIn</p>
+              <button class="add-project-btn" onclick="openAddProjectModal()">
+                <i class="fas fa-plus-circle"></i> Adicionar Projeto
+              </button>
+            `;
+            grid.appendChild(newPlaceholder);
+          }
+          
+          // Atualiza localStorage
+          saveProjectsToLocalStorage();
+        }
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function saveProjectsToLocalStorage() {
+      const grid = document.getElementById('linkedinProjectsGrid');
+      const projects = [];
+      
+      for (let i = 0; i < grid.children.length; i++) {
+        const card = grid.children[i];
+        // Pula o placeholder
+        if (card.id === 'placeholderAdd') continue;
+        
+        const title = card.querySelector('h3')?.innerText || '';
+        const desc = card.querySelector('p')?.innerText || '';
+        const link = card.querySelector('a')?.getAttribute('href') || '';
+        
+        projects.push({ title, description: desc, url: link });
+      }
+      
+      localStorage.setItem('linkedinProjects', JSON.stringify(projects));
+    }
+
+    function loadProjectsFromLocalStorage() {
+      const saved = localStorage.getItem('linkedinProjects');
+      if (saved) {
+        const projects = JSON.parse(saved);
+        if (projects.length > 0) {
+          const grid = document.getElementById('linkedinProjectsGrid');
+          const placeholder = document.getElementById('placeholderAdd');
+          if (placeholder) placeholder.remove();
+          
+          projects.forEach(project => {
+            const cardId = 'project_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.id = cardId;
+            card.innerHTML = `
+              <div class="project-icon">📌</div>
+              <h3>${escapeHtml(project.title)}</h3>
+              <p>${escapeHtml(project.description)}</p>
+              <a href="${escapeHtml(project.url)}" target="_blank">Ver no LinkedIn →</a>
+              <div>
+                <button class="delete-btn" onclick="deleteProject('${cardId}')">
+                  <i class="fas fa-trash-alt"></i> Remover
+                </button>
+              </div>
+            `;
+            grid.appendChild(card);
+          });
+        }
+      }
+    }
+
+    // Fechar modal clicando fora
+    window.onclick = function(event) {
+      const modal = document.getElementById('projectModal');
+      if (event.target === modal) {
+        closeModal();
+      }
     }
 
     // Splash screen
@@ -495,14 +783,23 @@
           splash.style.display = 'none';
           document.getElementById('mainContent').classList.add('show');
         }, 800);
-      }, 2500);
+      }, 2000);
+      
+      // Carrega projetos salvos
+      loadProjectsFromLocalStorage();
     }
 
-    // Ativar primeira seção
+    // Ativar primeira seção (HTML)
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.section').forEach((section, index) => {
-        if (index !== 0) section.style.display = 'none';
+      const allSections = document.querySelectorAll('.section');
+      allSections.forEach(section => {
+        section.style.display = 'none';
       });
+      const htmlSection = document.getElementById('html');
+      if (htmlSection) {
+        htmlSection.style.display = 'block';
+        htmlSection.classList.add('active-section');
+      }
     });
   </script>
 </body>
