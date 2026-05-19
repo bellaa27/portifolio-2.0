@@ -21,7 +21,7 @@
       line-height: 1.6;
     }
 
-    /* Loading/Splash Screen Profissional */
+    /* Loading/Splash Screen */
     .splash {
       position: fixed;
       top: 0;
@@ -90,7 +90,7 @@
       display: block;
     }
 
-    /* Header Profissional */
+    /* Header */
     .header {
       position: fixed;
       top: 0;
@@ -150,7 +150,7 @@
       transform: translateY(-2px);
     }
 
-    /* Container principal */
+    /* Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -299,7 +299,7 @@
       gap: 0.75rem;
     }
 
-    /* Estilo da seção LinkedIn */
+    /* Estilo LinkedIn Projects */
     .linkedin-placeholder {
       background: linear-gradient(135deg, #111827, #0f1117);
       border: 2px dashed #374151;
@@ -373,6 +373,73 @@
       border-color: #ef4444;
     }
 
+    /* Perfil LinkedIn Card */
+    .linkedin-profile-card {
+      background: linear-gradient(135deg, #0a66c2, #0e76a8);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .linkedin-profile-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .linkedin-profile-info i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .linkedin-profile-info span {
+      color: white;
+      font-weight: 500;
+    }
+
+    .linkedin-profile-btn {
+      background: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      color: #0a66c2;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .linkedin-profile-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    /* VS Code Instructions */
+    .vscode-instruction {
+      background: #1e1e2e;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: 4px solid #007acc;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+    }
+
+    .vscode-instruction code {
+      background: #2d2d3d;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: #4ec9b0;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -383,34 +450,99 @@
       font-size: 0.75rem;
     }
 
-    /* Responsivo */
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      margin: 20px;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 1rem;
+      color: #E0E0E0;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      background: #1F2937;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    .modal-buttons button {
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .cancel-btn {
+      background: #374151;
+      border: none;
+      color: white;
+    }
+
+    .save-btn {
+      background: #0a66c2;
+      border: none;
+      color: white;
+    }
+
     @media (max-width: 768px) {
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
       }
-      
       .hero-stats {
         justify-content: center;
       }
-      
       .header-container {
         flex-direction: column;
         gap: 1rem;
       }
-      
       .nav-links {
         justify-content: center;
       }
-      
       .container {
         padding-top: 9rem;
+      }
+      .linkedin-profile-card {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Splash Screen Profissional -->
   <div class="splash" id="splash">
     <div class="splash-content">
       <div class="splash-logo">IC</div>
@@ -419,7 +551,6 @@
     </div>
   </div>
 
-  <!-- Conteúdo Principal -->
   <div class="main-content" id="mainContent">
     <header class="header">
       <div class="header-container">
@@ -446,18 +577,9 @@
           <h1>Desenvolvedora<br>Full Stack</h1>
           <p>Especialista em criação de soluções web, aplicações mobile e integrações. Transformo ideias em código de alta performance.</p>
           <div class="hero-stats">
-            <div class="stat">
-              <h3>20+</h3>
-              <p>Projetos</p>
-            </div>
-            <div class="stat">
-              <h3>5+</h3>
-              <p>Tecnologias</p>
-            </div>
-            <div class="stat">
-              <h3>100%</h3>
-              <p>Dedicada</p>
-            </div>
+            <div class="stat"><h3>20+</h3><p>Projetos</p></div>
+            <div class="stat"><h3>5+</h3><p>Tecnologias</p></div>
+            <div class="stat"><h3>100%</h3><p>Dedicada</p></div>
           </div>
         </div>
         <div class="hero-image">
@@ -469,32 +591,16 @@
 
       <!-- Seção HTML -->
       <div id="html" class="section">
-        <div class="section-title">
-          <i class="fab fa-html5"></i>
-          <span>HTML / CSS</span>
-        </div>
+        <div class="section-title"><i class="fab fa-html5"></i><span>HTML / CSS</span></div>
         <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-icon">🌐</div>
-            <h3>Projeto Copa</h3>
-            <p>Aplicação web sobre a Copa do Mundo com design responsivo.</p>
-            <a href="https://github.com/bellaa27/copa" target="_blank">Ver Projeto →</a>
-          </div>
-          <div class="project-card">
-            <div class="project-icon">👻</div>
-            <h3>Pacman Game</h3>
-            <p>Recriação do clássico jogo Pacman com HTML5, CSS3 e JavaScript.</p>
-            <a href="https://bellaa27.github.io/PACMAN2/pac.html" target="_blank">Ver Projeto →</a>
-          </div>
+          <div class="project-card"><div class="project-icon">🌐</div><h3>Projeto Copa</h3><p>Aplicação web sobre a Copa do Mundo com design responsivo.</p><a href="https://github.com/bellaa27/copa" target="_blank">Ver Projeto →</a></div>
+          <div class="project-card"><div class="project-icon">👻</div><h3>Pacman Game</h3><p>Recriação do clássico jogo Pacman com HTML5, CSS3 e JavaScript.</p><a href="https://bellaa27.github.io/PACMAN2/pac.html" target="_blank">Ver Projeto →</a></div>
         </div>
       </div>
 
       <!-- Seção JavaScript -->
       <div id="javascript" class="section">
-        <div class="section-title">
-          <i class="fab fa-js"></i>
-          <span>JavaScript</span>
-        </div>
+        <div class="section-title"><i class="fab fa-js"></i><span>JavaScript</span></div>
         <div class="projects-grid">
           <div class="project-card"><h3>Primeiros Códigos</h3><p>Primeiros passos com JavaScript</p><a href="https://bellaa27.github.io/primeira-aula-backend/html" target="_blank">Ver Projeto →</a></div>
           <div class="project-card"><h3>Media SE</h3><p>Sistema de média escolar</p><a href="https://github.com/bellaa27/links2" target="_blank">Ver Projeto →</a></div>
@@ -512,10 +618,7 @@
 
       <!-- Seção Gamma -->
       <div id="gamma" class="section">
-        <div class="section-title">
-          <i class="fas fa-chart-line"></i>
-          <span>Gamma • Apresentações</span>
-        </div>
+        <div class="section-title"><i class="fas fa-chart-line"></i><span>Gamma • Apresentações</span></div>
         <div class="projects-grid">
           <div class="project-card"><h3>App Escolar</h3><p>Apresentação de aplicativo escolar</p><a href="https://gamma.app/docs/Apresentacao-do-App-Escolar-Gestao-Completa-na-Palma-da-Mao-t82h2lwr6prdzdu?mode=doc" target="_blank">Ver Projeto →</a></div>
           <div class="project-card"><h3>Propriedade Intelectual</h3><p>Apresentação sobre propriedade intelectual</p><a href="https://gamma.app/docs/Propriedade-Intelectual-de-Criacao-Protegendo-o-Valor-da-Inovacao-lfmed5eowz15fz3" target="_blank">Ver Projeto →</a></div>
@@ -525,10 +628,7 @@
 
       <!-- Seção Mobile -->
       <div id="mobile" class="section">
-        <div class="section-title">
-          <i class="fas fa-mobile-alt"></i>
-          <span>Mobile • React Native</span>
-        </div>
+        <div class="section-title"><i class="fas fa-mobile-alt"></i><span>Mobile • React Native</span></div>
         <div class="projects-grid">
           <div class="project-card"><h3>Joguinho</h3><p>Jogo desenvolvido em React Native</p><a href="https://snack.expo.dev/@bellinha/joguinho" target="_blank">Ver Projeto →</a></div>
           <div class="project-card"><h3>Jogo da Cor</h3><p>Jogo interativo de cores</p><a href="https://snack.expo.dev/@bellinha/b21135" target="_blank">Ver Projeto →</a></div>
@@ -538,48 +638,48 @@
 
       <!-- Seção Python -->
       <div id="python" class="section">
-        <div class="section-title">
-          <i class="fab fa-python"></i>
-          <span>Python</span>
-        </div>
+        <div class="section-title"><i class="fab fa-python"></i><span>Python</span></div>
         <div class="projects-grid">
           <div class="project-card"><h3>Projeto Python 1</h3><p>Em desenvolvimento</p><a href="#">Em breve →</a></div>
           <div class="project-card"><h3>Projeto Python 2</h3><p>Em desenvolvimento</p><a href="#">Em breve →</a></div>
         </div>
       </div>
 
-      <!-- Seção LinkedIn - Espaço para adicionar projetos -->
+      <!-- Seção LinkedIn -->
       <div id="linkedin" class="section">
-        <div class="section-title">
-          <i class="fab fa-linkedin"></i>
-          <span>LinkedIn • Meus Projetos</span>
-        </div>
+        <div class="section-title"><i class="fab fa-linkedin"></i><span>LinkedIn • Meus Projetos</span></div>
         
-        <!-- Grid onde os projetos serão exibidos -->
+        <!-- Card do Perfil do LinkedIn -->
+        <div class="linkedin-profile-card">
+          <div class="linkedin-profile-info">
+            <i class="fab fa-linkedin"></i>
+            <span><strong>Isabella Cardoso</strong> | Desenvolvedora Full Stack</span>
+          </div>
+          <a href="https://www.linkedin.com/in/isabella-cardoso-80508830a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="linkedin-profile-btn">
+            <i class="fab fa-linkedin"></i> Ver Perfil
+          </a>
+        </div>
+
+        <!-- Grid dos projetos do LinkedIn -->
         <div class="projects-grid" id="linkedinProjectsGrid">
-          <!-- Botão para adicionar novo projeto -->
           <div class="linkedin-placeholder" id="placeholderAdd">
             <i class="fab fa-linkedin"></i>
             <h3>Adicione seus projetos do LinkedIn</h3>
-            <p>Clique no botão abaixo para adicionar os links dos seus projetos publicados no LinkedIn</p>
+            <p>Clique no botão abaixo para adicionar os links dos seus posts e projetos publicados no LinkedIn</p>
             <button class="add-project-btn" onclick="openAddProjectModal()">
               <i class="fas fa-plus-circle"></i> Adicionar Projeto
             </button>
           </div>
         </div>
 
-        <!-- Modal para adicionar projeto -->
-        <div id="projectModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center;">
-          <div style="background: #111827; border: 1px solid #374151; border-radius: 20px; padding: 2rem; max-width: 500px; width: 90%; margin: 20px;">
-            <h3 style="margin-bottom: 1rem; color: #E0E0E0;">Adicionar Projeto do LinkedIn</h3>
-            <input type="text" id="projectTitle" placeholder="Título do projeto" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #1F2937; border: 1px solid #374151; border-radius: 8px; color: white; font-family: 'Inter', sans-serif;">
-            <textarea id="projectDesc" placeholder="Descrição do projeto" rows="3" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #1F2937; border: 1px solid #374151; border-radius: 8px; color: white; font-family: 'Inter', sans-serif;"></textarea>
-            <input type="url" id="projectUrl" placeholder="URL do LinkedIn (ex: https://linkedin.com/posts/...)" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; background: #1F2937; border: 1px solid #374151; border-radius: 8px; color: white; font-family: 'Inter', sans-serif;">
-            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-              <button onclick="closeModal()" style="padding: 0.6rem 1.2rem; background: #374151; border: none; border-radius: 8px; color: white; cursor: pointer;">Cancelar</button>
-              <button onclick="saveProject()" style="padding: 0.6rem 1.2rem; background: #0a66c2; border: none; border-radius: 8px; color: white; cursor: pointer;">Salvar Projeto</button>
-            </div>
-          </div>
+        <!-- Instrução VS Code -->
+        <div class="vscode-instruction">
+          <i class="fas fa-code" style="margin-right: 8px; color: #007acc;"></i>
+          <strong>💻 Como editar no Visual Studio Code:</strong><br>
+          1. Salve este arquivo como <code>index.html</code><br>
+          2. Abra no VS Code e clique com botão direito → <code>Open with Live Server</code><br>
+          3. Para adicionar projetos fixos, edite a seção <code>linkedinProjectsGrid</code> manualmente<br>
+          4. Os projetos adicionados pelo botão são salvos automaticamente no seu navegador!
         </div>
       </div>
     </div>
@@ -587,38 +687,52 @@
     <footer class="footer">
       <p>© 2025 Isabella Cardoso • Desenvolvedora Full Stack</p>
       <p style="margin-top: 0.5rem;">Transformando ideias em código • Tecnologia e Inovação</p>
-      <p style="margin-top: 0.5rem; font-size: 0.7rem;"><i class="fab fa-linkedin"></i> isabellacardoso | <i class="fab fa-github"></i> bellaa27</p>
+      <p style="margin-top: 0.5rem;">
+        <i class="fab fa-linkedin"></i> 
+        <a href="https://www.linkedin.com/in/isabella-cardoso-80508830a" target="_blank" style="color: #0a66c2; text-decoration: none;">isabella-cardoso</a> | 
+        <i class="fab fa-github"></i> bellaa27
+      </p>
     </footer>
   </div>
 
+  <!-- Modal para adicionar projeto -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <h3><i class="fab fa-linkedin"></i> Adicionar Projeto do LinkedIn</h3>
+      <input type="text" id="projectTitle" placeholder="Título do projeto">
+      <textarea id="projectDesc" rows="3" placeholder="Descrição do projeto"></textarea>
+      <input type="url" id="projectUrl" placeholder="URL do LinkedIn (ex: https://linkedin.com/posts/...)">
+      <div class="modal-buttons">
+        <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
+        <button class="save-btn" onclick="saveProject()">Salvar Projeto</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Mostrar seções
     function showPage(pageId) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => {
         section.classList.remove('active-section');
         section.style.display = 'none';
       });
-      const targetSection = document.getElementById(pageId);
-      if (targetSection) {
-        targetSection.style.display = 'block';
-        targetSection.classList.add('active-section');
+      const target = document.getElementById(pageId);
+      if (target) {
+        target.style.display = 'block';
+        target.classList.add('active-section');
         window.scrollTo({ top: 400, behavior: 'smooth' });
       }
     }
 
-    // Modal functions
     function openAddProjectModal() {
-      const modal = document.getElementById('projectModal');
-      modal.style.display = 'flex';
+      document.getElementById('projectModal').style.display = 'flex';
       document.getElementById('projectTitle').value = '';
       document.getElementById('projectDesc').value = '';
       document.getElementById('projectUrl').value = '';
     }
 
     function closeModal() {
-      const modal = document.getElementById('projectModal');
-      modal.style.display = 'none';
+      document.getElementById('projectModal').style.display = 'none';
     }
 
     function saveProject() {
@@ -626,23 +740,9 @@
       const desc = document.getElementById('projectDesc').value.trim();
       const url = document.getElementById('projectUrl').value.trim();
 
-      if (!title) {
-        alert('Por favor, digite o título do projeto');
-        return;
-      }
-      if (!desc) {
-        alert('Por favor, digite a descrição do projeto');
-        return;
-      }
-      if (!url) {
-        alert('Por favor, digite a URL do LinkedIn');
-        return;
-      }
-      if (!url.includes('linkedin.com')) {
-        if(!confirm('A URL não parece ser do LinkedIn. Deseja continuar mesmo assim?')) {
-          return;
-        }
-      }
+      if (!title) { alert('Digite o título do projeto'); return; }
+      if (!desc) { alert('Digite a descrição do projeto'); return; }
+      if (!url) { alert('Digite a URL do LinkedIn'); return; }
 
       addProjectCard(title, desc, url);
       closeModal();
@@ -650,17 +750,12 @@
 
     function addProjectCard(title, description, url) {
       const grid = document.getElementById('linkedinProjectsGrid');
-      
-      // Remove o placeholder se ele existir
       const placeholder = document.getElementById('placeholderAdd');
       if (placeholder && grid.children.length === 1) {
         placeholder.remove();
       }
       
-      // Cria um ID único para o card
       const cardId = 'project_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
-      
-      // Cria o novo card
       const card = document.createElement('div');
       card.className = 'project-card';
       card.id = cardId;
@@ -669,25 +764,17 @@
         <h3>${escapeHtml(title)}</h3>
         <p>${escapeHtml(description)}</p>
         <a href="${escapeHtml(url)}" target="_blank">Ver no LinkedIn →</a>
-        <div>
-          <button class="delete-btn" onclick="deleteProject('${cardId}')">
-            <i class="fas fa-trash-alt"></i> Remover
-          </button>
-        </div>
+        <div><button class="delete-btn" onclick="deleteProject('${cardId}')"><i class="fas fa-trash-alt"></i> Remover</button></div>
       `;
       grid.appendChild(card);
-      
-      // Salva no localStorage
-      saveProjectsToLocalStorage();
+      saveToLocalStorage();
     }
 
     function deleteProject(cardId) {
-      if (confirm('Tem certeza que deseja remover este projeto?')) {
+      if (confirm('Remover este projeto?')) {
         const card = document.getElementById(cardId);
         if (card) {
           card.remove();
-          
-          // Se não houver mais projetos, mostra o placeholder novamente
           const grid = document.getElementById('linkedinProjectsGrid');
           if (grid.children.length === 0) {
             const newPlaceholder = document.createElement('div');
@@ -696,16 +783,12 @@
             newPlaceholder.innerHTML = `
               <i class="fab fa-linkedin"></i>
               <h3>Adicione seus projetos do LinkedIn</h3>
-              <p>Clique no botão abaixo para adicionar os links dos seus projetos publicados no LinkedIn</p>
-              <button class="add-project-btn" onclick="openAddProjectModal()">
-                <i class="fas fa-plus-circle"></i> Adicionar Projeto
-              </button>
+              <p>Clique no botão abaixo para adicionar os links dos seus posts e projetos publicados no LinkedIn</p>
+              <button class="add-project-btn" onclick="openAddProjectModal()"><i class="fas fa-plus-circle"></i> Adicionar Projeto</button>
             `;
             grid.appendChild(newPlaceholder);
           }
-          
-          // Atualiza localStorage
-          saveProjectsToLocalStorage();
+          saveToLocalStorage();
         }
       }
     }
@@ -716,26 +799,21 @@
       return div.innerHTML;
     }
 
-    function saveProjectsToLocalStorage() {
+    function saveToLocalStorage() {
       const grid = document.getElementById('linkedinProjectsGrid');
       const projects = [];
-      
       for (let i = 0; i < grid.children.length; i++) {
         const card = grid.children[i];
-        // Pula o placeholder
         if (card.id === 'placeholderAdd') continue;
-        
         const title = card.querySelector('h3')?.innerText || '';
         const desc = card.querySelector('p')?.innerText || '';
         const link = card.querySelector('a')?.getAttribute('href') || '';
-        
         projects.push({ title, description: desc, url: link });
       }
-      
       localStorage.setItem('linkedinProjects', JSON.stringify(projects));
     }
 
-    function loadProjectsFromLocalStorage() {
+    function loadFromLocalStorage() {
       const saved = localStorage.getItem('linkedinProjects');
       if (saved) {
         const projects = JSON.parse(saved);
@@ -743,22 +821,17 @@
           const grid = document.getElementById('linkedinProjectsGrid');
           const placeholder = document.getElementById('placeholderAdd');
           if (placeholder) placeholder.remove();
-          
-          projects.forEach(project => {
+          projects.forEach(proj => {
             const cardId = 'project_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
             const card = document.createElement('div');
             card.className = 'project-card';
             card.id = cardId;
             card.innerHTML = `
               <div class="project-icon">📌</div>
-              <h3>${escapeHtml(project.title)}</h3>
-              <p>${escapeHtml(project.description)}</p>
-              <a href="${escapeHtml(project.url)}" target="_blank">Ver no LinkedIn →</a>
-              <div>
-                <button class="delete-btn" onclick="deleteProject('${cardId}')">
-                  <i class="fas fa-trash-alt"></i> Remover
-                </button>
-              </div>
+              <h3>${escapeHtml(proj.title)}</h3>
+              <p>${escapeHtml(proj.description)}</p>
+              <a href="${escapeHtml(proj.url)}" target="_blank">Ver no LinkedIn →</a>
+              <div><button class="delete-btn" onclick="deleteProject('${cardId}')"><i class="fas fa-trash-alt"></i> Remover</button></div>
             `;
             grid.appendChild(card);
           });
@@ -766,15 +839,11 @@
       }
     }
 
-    // Fechar modal clicando fora
     window.onclick = function(event) {
       const modal = document.getElementById('projectModal');
-      if (event.target === modal) {
-        closeModal();
-      }
+      if (event.target === modal) closeModal();
     }
 
-    // Splash screen
     window.onload = function() {
       setTimeout(() => {
         const splash = document.getElementById('splash');
@@ -784,17 +853,12 @@
           document.getElementById('mainContent').classList.add('show');
         }, 800);
       }, 2000);
-      
-      // Carrega projetos salvos
-      loadProjectsFromLocalStorage();
+      loadFromLocalStorage();
     }
 
-    // Ativar primeira seção (HTML)
     document.addEventListener('DOMContentLoaded', () => {
-      const allSections = document.querySelectorAll('.section');
-      allSections.forEach(section => {
-        section.style.display = 'none';
-      });
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.style.display = 'none');
       const htmlSection = document.getElementById('html');
       if (htmlSection) {
         htmlSection.style.display = 'block';
