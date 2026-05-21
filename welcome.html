@@ -128,26 +128,60 @@
             margin-bottom: 24px;
         }
 
-        .hero-left p {
-            font-size: 1.2rem;
+        /* TEXTO SOBRE MIM (agora vai imediatamente após o título) */
+        .sobre-mim {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            padding: 28px 32px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            margin: 20px 0 30px 0;
+            transition: all 0.3s;
+        }
+        .sobre-mim:hover {
+            border-color: #00F0FF;
+            box-shadow: 0 0 20px rgba(0,240,255,0.1);
+        }
+        .sobre-mim h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #00F0FF;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sobre-mim p {
             color: #CCD6F6;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
-        .btn-acessar {
-            background: linear-gradient(95deg, #00C2FF, #7C3AED);
-            border: none;
-            padding: 16px 42px;
+        /* BOTÕES */
+        .botoes-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        .btn-acessar, .btn-linkedin {
+            padding: 14px 32px;
             border-radius: 60px;
             font-weight: 700;
-            font-size: 1.1rem;
-            color: white;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             cursor: pointer;
             transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-acessar {
+            background: linear-gradient(95deg, #00C2FF, #7C3AED);
+            color: white;
             box-shadow: 0 0 15px rgba(0,194,255,0.5);
         }
 
@@ -155,6 +189,19 @@
             transform: scale(1.03);
             box-shadow: 0 0 30px rgba(124,58,237,0.6);
             gap: 18px;
+        }
+
+        .btn-linkedin {
+            background: #0077B5;
+            color: white;
+            box-shadow: 0 0 15px rgba(0,119,181,0.5);
+        }
+
+        .btn-linkedin:hover {
+            background: #005E8C;
+            transform: translateY(-2px);
+            gap: 16px;
+            box-shadow: 0 8px 20px rgba(0,119,181,0.4);
         }
 
         /* CARD GLASS (carrossel lateral) */
@@ -420,6 +467,8 @@
             .hero-container { grid-template-columns: 1fr; text-align: center; }
             .hero-left h1 { font-size: 2.5rem; }
             .cursos-title { font-size: 2.2rem; }
+            .botoes-container { justify-content: center; }
+            .sobre-mim { text-align: left; }
         }
     </style>
 </head>
@@ -447,11 +496,34 @@
     <section class="hero-section">
         <div class="hero-container">
             <div class="hero-left">
-                <h1>Bem-vindo ao ecossistema <br>do amanhã</h1>
-                <p>Explore projetos disruptivos, formações de ponta e uma rede de inovação. Uma experiência digital imersiva com inteligência artificial e desenvolvimento de software.</p>
-                <button class="btn-acessar" onclick="irParaPortfolio()">
-                    🚀 Acessar Portfólio <span>⟶</span>
-                </button>
+                <h1>Bem-vindo aos Cursos <br>do Futuro</h1>
+
+                <!-- TEXTO SOBRE MIM - agora aqui, antes dos botões -->
+                <div class="sobre-mim">
+                    <h3><i class="fas fa-user-astronaut"></i> Sobre Isabella Cardoso</h3>
+                    <p>
+                        Sou uma <strong>Desenvolvedora Full Stack</strong> com paixão por criar soluções tecnológicas que realmente fazem a diferença. 
+                        Minha jornada no mundo da programação começou há mais de 3 anos, e desde então tenho me dedicado a dominar 
+                        <strong>JavaScript, Python, React, Node.js</strong> e, mais recentemente, <strong>Inteligência Artificial e Machine Learning</strong>.
+                        <br><br>
+                        Já desenvolvi mais de <strong>20 projetos completos</strong>, desde aplicações web responsivas até sistemas mobile com React Native. 
+                        Acredito que o melhor código é aquele que une performance, elegância e uma experiência de usuário impecável. 
+                        Estou sempre em busca de novos desafios e colaborações que me permitam crescer e contribuir com a comunidade tech.
+                        <br><br>
+                        🎯 <strong>Objetivo atual:</strong> Unir desenvolvimento de software e IA para construir produtos preditivos e inovadores. 
+                        Vamos conectar?
+                    </p>
+                </div>
+
+                <!-- BOTÕES (agora imediatamente após o texto sobre mim) -->
+                <div class="botoes-container">
+                    <button class="btn-acessar" onclick="irParaPortfolio()">
+                        🚀 Acessar Portfólio <span>⟶</span>
+                    </button>
+                    <a href="https://www.linkedin.com/in/isabella-cardoso-80508830a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="btn-linkedin">
+                        🔗 LinkedIn <span>⟶</span>
+                    </a>
+                </div>
             </div>
             <div class="hero-right">
                 <div class="carousel-container">
@@ -565,7 +637,6 @@
     let currentIndex = 0;
     let autoInterval;
 
-    // Cria os indicadores
     function createIndicators() {
         indicatorsContainer.innerHTML = '';
         for (let i = 0; i < total; i++) {
@@ -577,7 +648,6 @@
         }
     }
 
-    // Atualiza indicadores
     function updateIndicators() {
         const dots = document.querySelectorAll('.indicator');
         dots.forEach((dot, idx) => {
@@ -586,7 +656,6 @@
         });
     }
 
-    // Move para o slide desejado
     function goToSlide(index) {
         if (index < 0) index = total - 1;
         if (index >= total) index = 0;
@@ -597,11 +666,9 @@
         resetAutoSlide();
     }
 
-    // Próximo / anterior
     function nextSlide() { goToSlide(currentIndex + 1); }
     function prevSlide() { goToSlide(currentIndex - 1); }
 
-    // Reseta o intervalo automático
     function resetAutoSlide() {
         if (autoInterval) clearInterval(autoInterval);
         autoInterval = setInterval(() => {
@@ -609,12 +676,10 @@
         }, 5000);
     }
 
-    // Pausa ao passar o mouse
     function pauseAutoSlide() {
         if (autoInterval) clearInterval(autoInterval);
     }
 
-    // Eventos
     if (prevBtn && nextBtn && slidesContainer) {
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
@@ -623,12 +688,11 @@
         carousel.addEventListener('mouseleave', resetAutoSlide);
     }
 
-    // Inicialização
     createIndicators();
-    goToSlide(0);  // garante posição inicial correta
+    goToSlide(0);
 
     // ========================
-    //  SAIBA MAIS (INFO ADICIONAL)
+    //  SAIBA MAIS
     // ========================
     window.toggleInfo = function(btn) {
         const parentCard = btn.closest('.curso-card');
@@ -655,7 +719,7 @@
         }, 200);
     };
 
-    // Animação de entrada dos cards (opcional)
+    // Animação de entrada dos cards
     const cards = document.querySelectorAll('.card-item, .curso-card');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
