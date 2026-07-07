@@ -301,7 +301,7 @@
 
     .game-preview {
       width: 100%;
-      height: 200px;
+      height: 150px;
       background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
       border-radius: 8px;
       margin-bottom: 1rem;
@@ -312,10 +312,9 @@
       position: relative;
     }
 
-    .game-preview img {
-      width: 80px;
-      height: 80px;
-      opacity: 0.8;
+    .game-preview i {
+      font-size: 4rem;
+      color: #6366f1;
     }
 
     .game-badge {
@@ -532,6 +531,96 @@
       color: white;
     }
 
+    /* Estilos específicos para os cards da seção Google IA */
+    .google-ia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .google-ia-card {
+      background: linear-gradient(145deg, #111827, #0d1420);
+      border: 1px solid #1F2937;
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .google-ia-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .google-ia-card:hover {
+      border-color: #6366f1;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.15);
+    }
+
+    .google-ia-card .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.1);
+      padding: 0.5rem;
+      border-radius: 12px;
+    }
+
+    .google-ia-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #F3F4F6;
+    }
+
+    .google-ia-card p {
+      font-size: 0.875rem;
+      color: #9CA3AF;
+      margin-bottom: 1rem;
+    }
+
+    .google-ia-card .card-link {
+      color: #6366f1;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .google-ia-card .card-link:hover {
+      gap: 0.75rem;
+      color: #8b5cf6;
+    }
+
+    .google-ia-card .card-tag {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.15);
+      color: #8b5cf6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
     @media (max-width: 768px) {
       .hero {
         grid-template-columns: 1fr;
@@ -550,7 +639,8 @@
       .container {
         padding-top: 9rem;
       }
-      .projects-grid {
+      .projects-grid,
+      .google-ia-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -577,7 +667,7 @@
           <button class="nav-btn" onclick="showPage('javascript')">JavaScript</button>
           <button class="nav-btn" onclick="showPage('gamma')">Gamma</button>
           <button class="nav-btn" onclick="showPage('mobile')">Mobile</button>
-          <button class="nav-btn" onclick="showPage('jogos')">Google ia</button>
+          <button class="nav-btn" onclick="showPage('jogos')">Google IA</button>
           <button class="nav-btn" onclick="showPage('linkedin')">LinkedIn</button>
         </div>
       </div>
@@ -645,60 +735,73 @@
         </div>
       </div>
 
-      <!-- SEÇÃO DE JOGOS - CORRIGIDA (Sem iframe, com link funcional) -->
+      <!-- SEÇÃO GOOGLE IA COM CARDS BONITINHOS -->
       <div id="jogos" class="section">
-        <div class="section-title"><i class="fas fa-gamepad"></i><span> google ia</span></div>
-        <div class="projects-grid">
-          <div class="game-card">
-            <div class="game-preview">
-              <i class="fas fa-gamepad" style="font-size: 4rem; color: #6366f1;"></i>
-            </div>
-            <h3>🎯 DevLingo</h3>
+        <div class="section-title"><i class="fas fa-robot"></i><span>Google IA</span></div>
+        <div class="google-ia-grid">
+          <!-- Card 1: DevLingo -->
+          <div class="google-ia-card">
+            <div class="card-icon">🎯</div>
+            <h3>DevLingo</h3>
             <p>Jogo inspirado no Duolingo para aprender programação! Aprenda JavaScript, Python e HTML de forma divertida.</p>
-            <a href="https://code-enigmatic-quest-flow.base44.app" target="_blank" class="play-btn">
-              <i class="fas fa-play"></i> Jogar Agora
-            </a>
-            <div class="game-badge">🏆 HTML5 • CSS3 • JavaScript</div>
+            <a href="https://code-enigmatic-quest-flow.base44.app" target="_blank" class="card-link">Jogar Agora →</a>
+            <div>
+              <span class="card-tag">HTML5</span>
+              <span class="card-tag">CSS3</span>
+              <span class="card-tag">JavaScript</span>
+            </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-icon"></div>
-            <h3>App de finanças</h3>
-            <p>App de finanças de controle pessoal.</p>
-            <a href="https://easy-righteous-money-flow.base44.app">Acesse</a>
-            <div class="game-badge"></div>
+          <!-- Card 2: App de Finanças -->
+          <div class="google-ia-card">
+            <div class="card-icon">💰</div>
+            <h3>App de Finanças</h3>
+            <p>App de finanças para controle pessoal. Gerencie suas despesas e receitas de forma simples e eficiente.</p>
+            <a href="https://easy-righteous-money-flow.base44.app" target="_blank" class="card-link">Acessar App →</a>
+            <div>
+              <span class="card-tag">React</span>
+              <span class="card-tag">Firebase</span>
+            </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-icon"></div>
-            <h3>Portifolio</h3>
-            <p>portifolio do google ia</p>
-            <a href="https://neural-aloof-forge-flow.base44.app">acesse</a>
-            <div class="game-badge"></div>
+          <!-- Card 3: Portfólio IA -->
+          <div class="google-ia-card">
+            <div class="card-icon">🚀</div>
+            <h3>Portfólio IA</h3>
+            <p>Portfólio desenvolvido com tecnologias de IA para demonstrar projetos e habilidades de forma interativa.</p>
+            <a href="https://neural-aloof-forge-flow.base44.app" target="_blank" class="card-link">Ver Portfólio →</a>
+            <div>
+              <span class="card-tag">AI</span>
+              <span class="card-tag">Next.js</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Pet Shop -->
+          <div class="google-ia-card">
+            <div class="card-icon">🐾</div>
+            <h3>Pet Shop</h3>
+            <p>Plataforma completa para gerenciamento de pet shops com agendamentos, estoque e atendimento.</p>
+            <a href="https://magnificent-amigo-pet-care.base44.app" target="_blank" class="card-link">Acessar →</a>
+            <div>
+              <span class="card-tag">Node.js</span>
+              <span class="card-tag">MongoDB</span>
+            </div>
+          </div>
+
+          <!-- Card 5: ClassDojo -->
+          <div class="google-ia-card">
+            <div class="card-icon">📚</div>
+            <h3>Dojo</h3>
+            <p>Inspiração no ClassDojo, uma plataforma educacional para conectar professores, alunos e famílias.</p>
+            <a href="https://spiked-edu-connect-flow.base44.app" target="_blank" class="card-link">Acessar →</a>
+            <div>
+              <span class="card-tag">Educação</span>
+              <span class="card-tag">Gamificação</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-icon"></div>
-        <h3>pet</h3>
-        <p>pet shop</p>
-        <a href="https://magnificent-amigo-pet-care.base44.app">acesse</a>
-        <div class="game-badge"></div>
-      </div>
-    </div>
- 
-
-    <div class="project-card">
-      <div class="project-icon"></div>
-      <h3>Dojo</h3>
-      <p>classdojo inspiração</p>
-      <a href="https://spiked-edu-connect-flow.base44.app">acesse</a>
-      <div class="game-badge"></div>
-    </div>
-  </div>
- 
-  </div>
       <div id="linkedin" class="section">
         <div class="section-title"><i class="fab fa-linkedin"></i><span>LinkedIn</span></div>
         
