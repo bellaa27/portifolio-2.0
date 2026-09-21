@@ -1,11 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Isabella Cardoso | Portfólio Profissional</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     * {
       margin: 0;
@@ -55,8 +58,13 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
     }
 
     .loader {
@@ -70,7 +78,9 @@
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .main-content {
@@ -286,68 +296,6 @@
       gap: 0.75rem;
     }
 
-    .game-card {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      border: 2px solid #374151;
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .game-card:hover {
-      border-color: #6366f1;
-      transform: translateY(-4px);
-    }
-
-    .game-preview {
-      width: 100%;
-      height: 150px;
-      background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .game-preview i {
-      font-size: 4rem;
-      color: #6366f1;
-    }
-
-    .game-badge {
-      display: inline-block;
-      background: rgba(99, 102, 241, 0.2);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      color: #6366f1;
-      margin-top: 0.5rem;
-    }
-
-    .play-btn {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      font-size: 0.875rem;
-      margin-top: 0.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .play-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-    }
-
     .linkedin-placeholder {
       background: linear-gradient(135deg, #111827, #0f1117);
       border: 2px dashed #374151;
@@ -531,7 +479,8 @@
       color: white;
     }
 
-    /* Estilos específicos para os cards da seção Google IA */
+    /* GOOGLE IA */
+
     .google-ia-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -561,8 +510,13 @@
     }
 
     @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
     }
 
     .google-ia-card:hover {
@@ -622,23 +576,29 @@
     }
 
     @media (max-width: 768px) {
+
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
       }
+
       .hero-stats {
         justify-content: center;
       }
+
       .header-container {
         flex-direction: column;
         gap: 1rem;
       }
+
       .nav-links {
         justify-content: center;
       }
+
       .container {
         padding-top: 9rem;
       }
+
       .projects-grid,
       .google-ia-grid {
         grid-template-columns: 1fr;
@@ -646,7 +606,10 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- SPLASH SCREEN -->
   <div class="splash" id="splash">
     <div class="splash-content">
       <div class="splash-logo">IC</div>
@@ -656,12 +619,16 @@
   </div>
 
   <div class="main-content" id="mainContent">
+
+    <!-- HEADER -->
     <header class="header">
       <div class="header-container">
+
         <div class="logo">
           <h1>Isabella Cardoso</h1>
           <p>Desenvolvedora Full Stack</p>
         </div>
+
         <div class="nav-links">
           <button class="nav-btn" onclick="showPage('html')">HTML/CSS</button>
           <button class="nav-btn" onclick="showPage('javascript')">JavaScript</button>
@@ -670,95 +637,332 @@
           <button class="nav-btn" onclick="showPage('jogos')">Google IA</button>
           <button class="nav-btn" onclick="showPage('linkedin')">LinkedIn</button>
         </div>
+
       </div>
     </header>
 
     <div class="container">
+
+      <!-- HERO -->
       <div class="hero">
+
         <div class="hero-content">
+
           <span class="badge">🎯 Portfólio Profissional</span>
-          <h1>Desenvolvedora<br>Full Stack</h1>
-          <p>Especialista em criação de soluções web, aplicações mobile e integrações.</p>
+
+          <h1>
+            Desenvolvedora<br>
+            Full Stack
+          </h1>
+
+          <p>
+            Especialista em criação de soluções web,
+            aplicações mobile e integrações.
+          </p>
+
           <div class="hero-stats">
-            <div class="stat"><h3>20+</h3><p>Projetos</p></div>
-            <div class="stat"><h3>5+</h3><p>Tecnologias</p></div>
-            <div class="stat"><h3>100%</h3><p>Dedicada</p></div>
+
+            <div class="stat">
+              <h3>20+</h3>
+              <p>Projetos</p>
+            </div>
+
+            <div class="stat">
+              <h3>5+</h3>
+              <p>Tecnologias</p>
+            </div>
+
+            <div class="stat">
+              <h3>100%</h3>
+              <p>Dedicada</p>
+            </div>
+
           </div>
+
         </div>
+
         <div class="hero-image">
           <i class="fas fa-code"></i>
           <p>Full Stack Developer</p>
           <small>React • Node • Python • React Native</small>
         </div>
+
       </div>
 
+
+      <!-- HTML / CSS -->
       <div id="html" class="section">
-        <div class="section-title"><i class="fab fa-html5"></i><span>HTML / CSS</span></div>
+
+        <div class="section-title">
+          <i class="fab fa-html5"></i>
+          <span>HTML / CSS</span>
+        </div>
+
         <div class="projects-grid">
-          <div class="project-card"><div class="project-icon">🌐</div><h3>Projeto Copa</h3><p>Aplicação web sobre a Copa do Mundo.</p><a href="https://github.com/bellaa27/copa" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><div class="project-icon">👻</div><h3>Pacman Game</h3><p>Recriação do clássico jogo Pacman.</p><a href="https://bellaa27.github.io/PACMAN2/pac.html" target="_blank">Ver Projeto →</a></div>
+
+          <div class="project-card">
+            <div class="project-icon">🌐</div>
+            <h3>Projeto Copa</h3>
+            <p>Aplicação web sobre a Copa do Mundo.</p>
+            <a href="https://github.com/bellaa27/copa" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon">👻</div>
+            <h3>Pacman Game</h3>
+            <p>Recriação do clássico jogo Pacman.</p>
+            <a href="https://bellaa27.github.io/PACMAN2/pac.html" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
         </div>
       </div>
 
+
+      <!-- JAVASCRIPT -->
       <div id="javascript" class="section">
-        <div class="section-title"><i class="fab fa-js"></i><span>JavaScript</span></div>
+
+        <div class="section-title">
+          <i class="fab fa-js"></i>
+          <span>JavaScript</span>
+        </div>
+
         <div class="projects-grid">
-          <div class="project-card"><h3>Primeiros Códigos</h3><p>Primeiros passos com JavaScript</p><a href="https://bellaa27.github.io/primeira-aula-backend/html" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Media SE</h3><p>Sistema de média escolar</p><a href="https://github.com/bellaa27/links2" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Variáveis</h3><p>Manipulação de variáveis</p><a href="https://github.com/bellaa27/-variaveis" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Usando For</h3><p>Estruturas de repetição</p><a href="https://github.com/bellaa27/for" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Brake</h3><p>Sistema de freio simulador</p><a href="https://github.com/bellaa27/brake" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Filtrar</h3><p>Sistema de filtros</p><a href="https://github.com/bellaa27/filtrar" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>4 Códigos Juntos</h3><p>Projeto integrado</p><a href="https://github.com/bellaa27/quatro-codigos-juntos-" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Leitura</h3><p>Sistema de leitura</p><a href="https://github.com/bellaa27/leitura-" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Cliente</h3><p>Cadastro de clientes</p><a href="https://github.com/bellaa27/clientejs" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Selection</h3><p>Sistema de seleção</p><a href="https://github.com/bellaa27/selection" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Livros</h3><p>Catálogo de livros</p><a href="https://github.com/bellaa27/livros" target="_blank">Ver Projeto →</a></div>
+
+          <div class="project-card">
+            <h3>Primeiros Códigos</h3>
+            <p>Primeiros passos com JavaScript</p>
+            <a href="https://bellaa27.github.io/primeira-aula-backend/html" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Media SE</h3>
+            <p>Sistema de média escolar</p>
+            <a href="https://github.com/bellaa27/links2" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Variáveis</h3>
+            <p>Manipulação de variáveis</p>
+            <a href="https://github.com/bellaa27/-variaveis" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Usando For</h3>
+            <p>Estruturas de repetição</p>
+            <a href="https://github.com/bellaa27/for" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Brake</h3>
+            <p>Sistema de freio simulador</p>
+            <a href="https://github.com/bellaa27/brake" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Filtrar</h3>
+            <p>Sistema de filtros</p>
+            <a href="https://github.com/bellaa27/filtrar" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>4 Códigos Juntos</h3>
+            <p>Projeto integrado</p>
+            <a href="https://github.com/bellaa27/quatro-codigos-juntos-" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Leitura</h3>
+            <p>Sistema de leitura</p>
+            <a href="https://github.com/bellaa27/leitura-" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Cliente</h3>
+            <p>Cadastro de clientes</p>
+            <a href="https://github.com/bellaa27/clientejs" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Selection</h3>
+            <p>Sistema de seleção</p>
+            <a href="https://github.com/bellaa27/selection" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Livros</h3>
+            <p>Catálogo de livros</p>
+            <a href="https://github.com/bellaa27/livros" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
         </div>
       </div>
 
+
+      <!-- GAMMA -->
       <div id="gamma" class="section">
-        <div class="section-title"><i class="fas fa-chart-line"></i><span>Gamma</span></div>
+
+        <div class="section-title">
+          <i class="fas fa-chart-line"></i>
+          <span>Gamma</span>
+        </div>
+
         <div class="projects-grid">
-          <div class="project-card"><h3>App Escolar</h3><p>Apresentação de aplicativo escolar</p><a href="https://gamma.app/docs/Apresentacao-do-App-Escolar-Gestao-Completa-na-Palma-da-Mao-t82h2lwr6prdzdu?mode=doc" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Propriedade Intelectual</h3><p>Apresentação sobre propriedade intelectual</p><a href="https://gamma.app/docs/Propriedade-Intelectual-de-Criacao-Protegendo-o-Valor-da-Inovacao-lfmed5eowz15fz3" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Startups 2026</h3><p>Análise de startups</p><a href="https://gamma.app/docs/Startups-de-2026-A-Nova-Onda-de-Crescimento-Global-l4z1z9s7buwla75" target="_blank">Ver Projeto →</a></div>
+
+          <div class="project-card">
+            <h3>App Escolar</h3>
+            <p>Apresentação de aplicativo escolar</p>
+            <a href="https://gamma.app/docs/Apresentacao-do-App-Escolar-Gestao-Completa-na-Palma-da-Mao-t82h2lwr6prdzdu?mode=doc" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Propriedade Intelectual</h3>
+            <p>Apresentação sobre propriedade intelectual</p>
+            <a href="https://gamma.app/docs/Propriedade-Intelectual-de-Criacao-Protegendo-o-Valor-da-Inovacao-lfmed5eowz15fz3" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <h3>Startups 2026</h3>
+            <p>Análise de startups</p>
+            <a href="https://gamma.app/docs/Startups-de-2026-A-Nova-Onda-de-Crescimento-Global-l4z1z9s7buwla75" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
         </div>
       </div>
 
-      <!-- SEÇÃO MOBILE COM OS LINKS SOLICITADOS -->
+
+      <!-- MOBILE -->
       <div id="mobile" class="section">
-        <div class="section-title"><i class="fas fa-mobile-alt"></i><span>Mobile</span></div>
+
+        <div class="section-title">
+          <i class="fas fa-mobile-alt"></i>
+          <span>Mobile</span>
+        </div>
+
         <div class="projects-grid">
-          <div class="project-card"><h3>Joguinho</h3><p>Jogo em React Native</p><a href="https://snack.expo.dev/@bellinha/joguinho" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Jogo da Cor</h3><p>Jogo interativo de cores</p><a href="https://snack.expo.dev/@bellinha/b21135" target="_blank">Ver Projeto →</a></div>
-          <div class="project-card"><h3>Jogo da Imagem</h3><p>Jogo com imagens</p><a href="https://snack.expo.dev/@bellinha/imagens" target="_blank">Ver Projeto →</a></div>
+
+          <div class="project-card">
+            <div class="project-icon">🎮</div>
+            <h3>Joguinho</h3>
+            <p>Jogo em React Native</p>
+            <a href="https://snack.expo.dev/@bellinha/joguinho" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon">🎨</div>
+            <h3>Jogo da Cor</h3>
+            <p>Jogo interativo de cores</p>
+            <a href="https://snack.expo.dev/@bellinha/b21135" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon">🖼️</div>
+            <h3>Jogo da Imagem</h3>
+            <p>Jogo com imagens</p>
+            <a href="https://snack.expo.dev/@bellinha/imagens" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
           <div class="project-card">
             <div class="project-icon">🎬</div>
             <h3>Locadora 2026</h3>
-            <p>Sistema de locadora de filmes e jogos com catálogo completo, busca e reservas online.</p>
-            <a href="https://maria-off.github.io/Locadora--2026/index.html" target="_blank">Ver Projeto →</a>
+            <p>
+              Sistema de locadora de filmes e jogos com catálogo completo,
+              busca e reservas online.
+            </p>
+            <a href="https://maria-off.github.io/Locadora--2026/index.html" target="_blank">
+              Ver Projeto →
+            </a>
           </div>
-          <!-- NOVO CARD: ACADEMIA TITAN FORGE -->
+
           <div class="project-card">
             <div class="project-icon">💪</div>
             <h3>Academia Titan Forge</h3>
-            <p>Landing page para academia com estrutura de ponta, treinos inteligentes e uma comunidade que te impulsiona.</p>
-            <a href="https://bellaa27.github.io/academia2/academia.html" target="_blank">Ver Projeto →</a>
+            <p>
+              Landing page para academia com estrutura de ponta,
+              treinos inteligentes e uma comunidade que te impulsiona.
+            </p>
+            <a href="https://bellaa27.github.io/academia2/academia.html" target="_blank">
+              Ver Projeto →
+            </a>
           </div>
+
+          <!-- NOVO PROJETO: PRÉ-CONSELHO -->
+          <div class="project-card">
+            <div class="project-icon">📱</div>
+            <h3>Pré-Conselho</h3>
+            <p>
+              Projeto desenvolvido para a plataforma Pré-Conselho.
+            </p>
+            <a href="https://vercel.com/isabella-cc4e/pre-conselho/HARQ8yV457E86AfHNRYiYxryiZNt" target="_blank">
+              Ver Projeto →
+            </a>
+          </div>
+
         </div>
       </div>
 
-      <!-- SEÇÃO GOOGLE IA SEM O CARD DA LOCADORA -->
+
+      <!-- GOOGLE IA -->
       <div id="jogos" class="section">
-        <div class="section-title"><i class="fas fa-robot"></i><span>Google IA</span></div>
+
+        <div class="section-title">
+          <i class="fas fa-robot"></i>
+          <span>Google IA</span>
+        </div>
+
         <div class="google-ia-grid">
-          <!-- Card 1: DevLingo -->
+
           <div class="google-ia-card">
             <div class="card-icon">🎯</div>
             <h3>DevLingo</h3>
-            <p>Jogo inspirado no Duolingo para aprender programação! Aprenda JavaScript, Python e HTML de forma divertida.</p>
-            <a href="https://code-enigmatic-quest-flow.base44.app" target="_blank" class="card-link">Jogar Agora →</a>
+            <p>
+              Jogo inspirado no Duolingo para aprender programação!
+              Aprenda JavaScript, Python e HTML de forma divertida.
+            </p>
+
+            <a href="https://code-enigmatic-quest-flow.base44.app"
+               target="_blank"
+               class="card-link">
+              Jogar Agora →
+            </a>
+
             <div>
               <span class="card-tag">HTML5</span>
               <span class="card-tag">CSS3</span>
@@ -766,259 +970,688 @@
             </div>
           </div>
 
-          <!-- Card 2: App de Finanças -->
+
           <div class="google-ia-card">
             <div class="card-icon">💰</div>
             <h3>App de Finanças</h3>
-            <p>App de finanças para controle pessoal. Gerencie suas despesas e receitas de forma simples e eficiente.</p>
-            <a href="https://easy-righteous-money-flow.base44.app" target="_blank" class="card-link">Acessar App →</a>
+
+            <p>
+              App de finanças para controle pessoal.
+              Gerencie suas despesas e receitas de forma simples e eficiente.
+            </p>
+
+            <a href="https://easy-righteous-money-flow.base44.app"
+               target="_blank"
+               class="card-link">
+              Acessar App →
+            </a>
+
             <div>
               <span class="card-tag">React</span>
               <span class="card-tag">Firebase</span>
             </div>
           </div>
 
-          <!-- Card 3: Portfólio IA -->
+
           <div class="google-ia-card">
             <div class="card-icon">🚀</div>
             <h3>Portfólio IA</h3>
-            <p>Portfólio desenvolvido com tecnologias de IA para demonstrar projetos e habilidades de forma interativa.</p>
-            <a href="https://neural-aloof-forge-flow.base44.app" target="_blank" class="card-link">Ver Portfólio →</a>
+
+            <p>
+              Portfólio desenvolvido com tecnologias de IA
+              para demonstrar projetos e habilidades de forma interativa.
+            </p>
+
+            <a href="https://neural-aloof-forge-flow.base44.app"
+               target="_blank"
+               class="card-link">
+              Ver Portfólio →
+            </a>
+
             <div>
               <span class="card-tag">AI</span>
               <span class="card-tag">Next.js</span>
             </div>
           </div>
 
-          <!-- Card 4: Pet Shop -->
+
           <div class="google-ia-card">
             <div class="card-icon">🐾</div>
             <h3>Pet Shop</h3>
-            <p>Plataforma completa para gerenciamento de pet shops com agendamentos, estoque e atendimento.</p>
-            <a href="https://magnificent-amigo-pet-care.base44.app" target="_blank" class="card-link">Acessar →</a>
+
+            <p>
+              Plataforma completa para gerenciamento de pet shops
+              com agendamentos, estoque e atendimento.
+            </p>
+
+            <a href="https://magnificent-amigo-pet-care.base44.app"
+               target="_blank"
+               class="card-link">
+              Acessar →
+            </a>
+
             <div>
               <span class="card-tag">Node.js</span>
               <span class="card-tag">MongoDB</span>
             </div>
           </div>
 
-          <!-- Card 5: Controle de Abastecimento -->
+
           <div class="google-ia-card">
-            <div class="card-icon">📚</div>
+            <div class="card-icon">⛽</div>
             <h3>Controle de Abastecimento</h3>
-            <p>Posto de Gasolina</p>
-            <a href="https://bellaa27.github.io/GASOLINE/index.html" target="_blank" class="card-link">Acessar →</a>
+
+            <p>
+              Sistema para controle de abastecimento
+              de posto de gasolina.
+            </p>
+
+            <a href="https://bellaa27.github.io/GASOLINE/index.html"
+               target="_blank"
+               class="card-link">
+              Acessar →
+            </a>
+
             <div>
-              <span class="card-tag">Educação</span>
-              <span class="card-tag">Gamificação</span>
+              <span class="card-tag">HTML</span>
+              <span class="card-tag">CSS</span>
+              <span class="card-tag">JavaScript</span>
             </div>
           </div>
+
         </div>
       </div>
-      
+
+
+      <!-- LINKEDIN -->
       <div id="linkedin" class="section">
-        <div class="section-title"><i class="fab fa-linkedin"></i><span>LinkedIn</span></div>
-        
+
+        <div class="section-title">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </div>
+
         <div class="linkedin-profile-card">
+
           <div class="linkedin-profile-info">
             <i class="fab fa-linkedin"></i>
-            <span><strong>Isabella Cardoso</strong> | Desenvolvedora Full Stack</span>
+
+            <span>
+              <strong>Isabella Cardoso</strong>
+              | Desenvolvedora Full Stack
+            </span>
           </div>
-          <a href="https://www.linkedin.com/in/isabella-cardoso-80508830a" target="_blank" class="linkedin-profile-btn">
-            <i class="fab fa-linkedin"></i> Ver Perfil
+
+          <a
+            href="https://www.linkedin.com/in/isabella-cardoso-80508830a"
+            target="_blank"
+            class="linkedin-profile-btn"
+          >
+            <i class="fab fa-linkedin"></i>
+            Ver Perfil
           </a>
+
         </div>
+
 
         <div class="projects-grid" id="linkedinProjectsGrid">
+
           <div class="linkedin-placeholder" id="placeholderAdd">
+
             <i class="fab fa-linkedin"></i>
+
             <h3>Adicione seus projetos do LinkedIn</h3>
+
             <button class="add-project-btn" onclick="openAddProjectModal()">
-              <i class="fas fa-plus-circle"></i> Adicionar Projeto
+              <i class="fas fa-plus-circle"></i>
+              Adicionar Projeto
             </button>
+
           </div>
+
         </div>
+
 
         <div class="vscode-instruction">
+
           <i class="fas fa-code"></i>
-          <strong>💻 Como editar no VS Code:</strong><br>
-          Salve como <code>index.html</code> e use Live Server
+
+          <strong>💻 Como editar no VS Code:</strong>
+          <br>
+
+          Salve como
+          <code>index.html</code>
+          e use Live Server
+
         </div>
+
       </div>
+
     </div>
 
+
+    <!-- FOOTER -->
     <footer class="footer">
-      <p>© 2025 Isabella Cardoso • Desenvolvedora Full Stack</p>
-      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/isabella-cardoso-80508830a" target="_blank">isabella-cardoso</a> | <i class="fab fa-github"></i> <a href="https://github.com/bellaa27" target="_blank">bellaa27</a></p>
+
+      <p>
+        © 2025 Isabella Cardoso • Desenvolvedora Full Stack
+      </p>
+
+      <p>
+
+        <i class="fab fa-linkedin"></i>
+
+        <a
+          href="https://www.linkedin.com/in/isabella-cardoso-80508830a"
+          target="_blank"
+        >
+          isabella-cardoso
+        </a>
+
+        |
+
+        <i class="fab fa-github"></i>
+
+        <a
+          href="https://github.com/bellaa27"
+          target="_blank"
+        >
+          bellaa27
+        </a>
+
+      </p>
+
     </footer>
+
   </div>
 
+
+  <!-- MODAL -->
   <div id="projectModal" class="modal">
+
     <div class="modal-content">
+
       <h3>Adicionar Projeto</h3>
-      <input type="text" id="projectTitle" placeholder="Título">
-      <textarea id="projectDesc" rows="3" placeholder="Descrição"></textarea>
-      <input type="url" id="projectUrl" placeholder="URL">
+
+      <input
+        type="text"
+        id="projectTitle"
+        placeholder="Título"
+      >
+
+      <textarea
+        id="projectDesc"
+        rows="3"
+        placeholder="Descrição"
+      ></textarea>
+
+      <input
+        type="url"
+        id="projectUrl"
+        placeholder="URL"
+      >
+
       <div class="modal-buttons">
-        <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
-        <button class="save-btn" onclick="saveProject()">Salvar</button>
+
+        <button
+          class="cancel-btn"
+          onclick="closeModal()"
+        >
+          Cancelar
+        </button>
+
+        <button
+          class="save-btn"
+          onclick="saveProject()"
+        >
+          Salvar
+        </button>
+
       </div>
+
     </div>
+
   </div>
+
 
   <script>
+
     function showPage(pageId) {
-      const sections = document.querySelectorAll('.section');
+
+      const sections =
+        document.querySelectorAll('.section');
+
       sections.forEach(section => {
+
         section.classList.remove('active-section');
         section.style.display = 'none';
+
       });
-      const target = document.getElementById(pageId);
+
+      const target =
+        document.getElementById(pageId);
+
       if (target) {
+
         target.style.display = 'block';
+
         target.classList.add('active-section');
-        window.scrollTo({ top: 400, behavior: 'smooth' });
+
+        window.scrollTo({
+          top: 400,
+          behavior: 'smooth'
+        });
+
       }
+
     }
 
+
     function openAddProjectModal() {
+
       document.getElementById('projectModal').style.display = 'flex';
+
       document.getElementById('projectTitle').value = '';
       document.getElementById('projectDesc').value = '';
       document.getElementById('projectUrl').value = '';
+
     }
+
 
     function closeModal() {
+
       document.getElementById('projectModal').style.display = 'none';
+
     }
+
 
     function saveProject() {
-      const title = document.getElementById('projectTitle').value.trim();
-      const desc = document.getElementById('projectDesc').value.trim();
-      const url = document.getElementById('projectUrl').value.trim();
+
+      const title =
+        document.getElementById('projectTitle').value.trim();
+
+      const desc =
+        document.getElementById('projectDesc').value.trim();
+
+      const url =
+        document.getElementById('projectUrl').value.trim();
+
 
       if (!title || !desc || !url) {
+
         alert('Preencha todos os campos!');
+
         return;
+
       }
+
 
       addProjectCard(title, desc, url);
+
       closeModal();
+
     }
 
-    function addProjectCard(title, description, url) {
-      const grid = document.getElementById('linkedinProjectsGrid');
-      const placeholder = document.getElementById('placeholderAdd');
-      if (placeholder) placeholder.remove();
-      
-      const cardId = 'project_' + Date.now();
-      const card = document.createElement('div');
+
+    function addProjectCard(
+      title,
+      description,
+      url
+    ) {
+
+      const grid =
+        document.getElementById('linkedinProjectsGrid');
+
+      const placeholder =
+        document.getElementById('placeholderAdd');
+
+
+      if (placeholder) {
+        placeholder.remove();
+      }
+
+
+      const cardId =
+        'project_' + Date.now();
+
+
+      const card =
+        document.createElement('div');
+
+
       card.className = 'project-card';
+
       card.id = cardId;
+
+
       card.innerHTML = `
+
         <div class="project-icon">📌</div>
+
         <h3>${escapeHtml(title)}</h3>
+
         <p>${escapeHtml(description)}</p>
-        <a href="${escapeHtml(url)}" target="_blank">Ver no LinkedIn →</a>
-        <div><button class="delete-btn" onclick="deleteProject('${cardId}')"><i class="fas fa-trash-alt"></i> Remover</button></div>
+
+        <a
+          href="${escapeHtml(url)}"
+          target="_blank"
+        >
+          Ver no LinkedIn →
+        </a>
+
+        <div>
+
+          <button
+            class="delete-btn"
+            onclick="deleteProject('${cardId}')"
+          >
+            <i class="fas fa-trash-alt"></i>
+            Remover
+          </button>
+
+        </div>
+
       `;
+
+
       grid.appendChild(card);
+
       saveToLocalStorage();
+
     }
+
 
     function deleteProject(cardId) {
+
       if (confirm('Remover este projeto?')) {
-        const card = document.getElementById(cardId);
-        if (card) card.remove();
-        
-        const grid = document.getElementById('linkedinProjectsGrid');
-        if (grid.children.length === 0) {
-          grid.innerHTML = `
-            <div class="linkedin-placeholder" id="placeholderAdd">
-              <i class="fab fa-linkedin"></i>
-              <h3>Adicione seus projetos do LinkedIn</h3>
-              <button class="add-project-btn" onclick="openAddProjectModal()">
-                <i class="fas fa-plus-circle"></i> Adicionar Projeto
-              </button>
-            </div>
-          `;
+
+        const card =
+          document.getElementById(cardId);
+
+        if (card) {
+          card.remove();
         }
+
+
+        const grid =
+          document.getElementById('linkedinProjectsGrid');
+
+
+        if (grid.children.length === 0) {
+
+          grid.innerHTML = `
+
+            <div
+              class="linkedin-placeholder"
+              id="placeholderAdd"
+            >
+
+              <i class="fab fa-linkedin"></i>
+
+              <h3>
+                Adicione seus projetos do LinkedIn
+              </h3>
+
+              <button
+                class="add-project-btn"
+                onclick="openAddProjectModal()"
+              >
+
+                <i class="fas fa-plus-circle"></i>
+
+                Adicionar Projeto
+
+              </button>
+
+            </div>
+
+          `;
+
+        }
+
+
         saveToLocalStorage();
+
       }
+
     }
+
 
     function escapeHtml(text) {
-      const div = document.createElement('div');
+
+      const div =
+        document.createElement('div');
+
       div.textContent = text;
+
       return div.innerHTML;
+
     }
+
 
     function saveToLocalStorage() {
-      const grid = document.getElementById('linkedinProjectsGrid');
+
+      const grid =
+        document.getElementById('linkedinProjectsGrid');
+
       const projects = [];
-      for (let i = 0; i < grid.children.length; i++) {
-        const card = grid.children[i];
-        if (card.classList && card.classList.contains('project-card')) {
-          const title = card.querySelector('h3')?.innerText || '';
-          const desc = card.querySelector('p')?.innerText || '';
-          const link = card.querySelector('a')?.getAttribute('href') || '';
-          projects.push({ title, description: desc, url: link });
+
+
+      for (
+        let i = 0;
+        i < grid.children.length;
+        i++
+      ) {
+
+        const card =
+          grid.children[i];
+
+
+        if (
+          card.classList &&
+          card.classList.contains('project-card')
+        ) {
+
+          const title =
+            card.querySelector('h3')?.innerText || '';
+
+          const desc =
+            card.querySelector('p')?.innerText || '';
+
+          const link =
+            card.querySelector('a')?.getAttribute('href') || '';
+
+
+          projects.push({
+
+            title: title,
+
+            description: desc,
+
+            url: link
+
+          });
+
         }
+
       }
-      localStorage.setItem('linkedinProjects', JSON.stringify(projects));
+
+
+      localStorage.setItem(
+        'linkedinProjects',
+        JSON.stringify(projects)
+      );
+
     }
+
 
     function loadFromLocalStorage() {
-      const saved = localStorage.getItem('linkedinProjects');
+
+      const saved =
+        localStorage.getItem('linkedinProjects');
+
+
       if (saved) {
-        const projects = JSON.parse(saved);
+
+        const projects =
+          JSON.parse(saved);
+
+
         if (projects.length > 0) {
-          const grid = document.getElementById('linkedinProjectsGrid');
+
+          const grid =
+            document.getElementById('linkedinProjectsGrid');
+
+
           grid.innerHTML = '';
+
+
           projects.forEach(proj => {
-            const cardId = 'project_' + Date.now() + '_' + Math.random();
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.id = cardId;
+
+            const cardId =
+              'project_' +
+              Date.now() +
+              '_' +
+              Math.random();
+
+
+            const card =
+              document.createElement('div');
+
+
+            card.className =
+              'project-card';
+
+            card.id =
+              cardId;
+
+
             card.innerHTML = `
+
               <div class="project-icon">📌</div>
-              <h3>${escapeHtml(proj.title)}</h3>
-              <p>${escapeHtml(proj.description)}</p>
-              <a href="${escapeHtml(proj.url)}" target="_blank">Ver no LinkedIn →</a>
-              <div><button class="delete-btn" onclick="deleteProject('${cardId}')"><i class="fas fa-trash-alt"></i> Remover</button></div>
+
+              <h3>
+                ${escapeHtml(proj.title)}
+              </h3>
+
+              <p>
+                ${escapeHtml(proj.description)}
+              </p>
+
+              <a
+                href="${escapeHtml(proj.url)}"
+                target="_blank"
+              >
+                Ver no LinkedIn →
+              </a>
+
+              <div>
+
+                <button
+                  class="delete-btn"
+                  onclick="deleteProject('${cardId}')"
+                >
+
+                  <i class="fas fa-trash-alt"></i>
+
+                  Remover
+
+                </button>
+
+              </div>
+
             `;
+
+
             grid.appendChild(card);
+
           });
+
         }
+
       }
+
     }
+
 
     window.onclick = function(event) {
-      const modal = document.getElementById('projectModal');
-      if (event.target === modal) closeModal();
-    }
+
+      const modal =
+        document.getElementById('projectModal');
+
+
+      if (event.target === modal) {
+
+        closeModal();
+
+      }
+
+    };
+
 
     window.onload = function() {
-      setTimeout(() => {
-        const splash = document.getElementById('splash');
-        splash.classList.add('hidden');
-        setTimeout(() => {
-          splash.style.display = 'none';
-          document.getElementById('mainContent').classList.add('show');
-        }, 800);
-      }, 2000);
-      loadFromLocalStorage();
-    }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.style.display = 'none');
-      const jogosSection = document.getElementById('jogos');
-      if (jogosSection) {
-        jogosSection.style.display = 'block';
-        jogosSection.classList.add('active-section');
+      setTimeout(() => {
+
+        const splash =
+          document.getElementById('splash');
+
+
+        splash.classList.add('hidden');
+
+
+        setTimeout(() => {
+
+          splash.style.display = 'none';
+
+          document
+            .getElementById('mainContent')
+            .classList.add('show');
+
+        }, 800);
+
+      }, 2000);
+
+
+      loadFromLocalStorage();
+
+    };
+
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+
+        const sections =
+          document.querySelectorAll('.section');
+
+
+        sections.forEach(
+          section =>
+            section.style.display = 'none'
+        );
+
+
+        const jogosSection =
+          document.getElementById('jogos');
+
+
+        if (jogosSection) {
+
+          jogosSection.style.display =
+            'block';
+
+          jogosSection.classList.add(
+            'active-section'
+          );
+
+        }
+
       }
-    });
+    );
+
   </script>
+
 </body>
 </html>
+```
